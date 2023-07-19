@@ -1,0 +1,14 @@
+* {
+  font-family: 'Lato', sans-serif;
+  color: var(--color);
+}
+body, select {
+  background-color: var(--bg);
+}
+
+.container {
+  padding: 0 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+

@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav__btn {
+    padding: 7px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.nav__btn:hover {
+    border-radius: 18px;
+    background-color: var(--semi-bg);
+}

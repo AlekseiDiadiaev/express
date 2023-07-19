@@ -1,0 +1,14 @@
+.header__btn {
+    height: 35px;
+    width: 35px;
+    transition: all 0.2s;
+}
+
+.header__btn svg {
+    height: 35px;
+}
+
+.header__btn:hover {
+    border-radius: 50%;
+    background-color: var(--semi-bg);
+}

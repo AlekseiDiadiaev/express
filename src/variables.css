@@ -1,0 +1,15 @@
+:root {
+    --semi-bg: #ebe8e8;
+    --bg: #ffffff;
+    --semi-color: #555555;
+    --color: #000;
+    --shadow-color: rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] {
+    --semi-bg: #4b4b4b;
+    --bg: #272727;
+    --semi-color: #ece9e9;
+    --color: #fff;
+    --shadow-color: rgba(255, 255, 255, 0.35);
+}
