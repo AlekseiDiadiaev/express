@@ -8,7 +8,18 @@
     height: 35px;
 }
 
-.header__btn:hover {
-    border-radius: 50%;
+@media (hover: hover) {
+    .header__btn:hover {
+        border-radius: 50%;
+        background-color: var(--semi-bg);
+    }
+}
+
+.buy-btn {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0px 40px;
     background-color: var(--semi-bg);
+    height: 36px;
+    border-radius: 18px;
 }

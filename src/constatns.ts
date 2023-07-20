@@ -12,7 +12,9 @@ export enum Categories{
 }
 
 export enum SortFileds{
-    Rate = 'rate',
-    Price = 'price',
-    Title = 'title'
+    RateLow = 'rate-1',
+    PriceLow = 'price-1',
+    PriceHigh = 'price+1',
+    TitleLow = 'title-1',
+    TitleHigh = 'title+1'
 }

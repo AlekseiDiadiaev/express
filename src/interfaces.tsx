@@ -1,6 +1,6 @@
 import { SortFileds } from "./constatns";
 
-export interface IProductsData {
+export interface IProductData {
     id: number;
     title: string;
     price: number;
@@ -10,7 +10,3 @@ export interface IProductsData {
     rate: number;
 }
 
-export interface IFilter {
-    field: SortFileds
-    direction: 1 | -1;
-}

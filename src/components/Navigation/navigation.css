@@ -4,13 +4,20 @@
 }
 
 .nav__btn {
-    padding: 7px;
+    padding: 8px;
     font-size: 18px;
     font-weight: bold;
     transition: all 0.2s;
 }
 
-.nav__btn:hover {
+.nav__btn.active{
     border-radius: 18px;
     background-color: var(--semi-bg);
+}
+
+@media (hover: hover) {
+    .nav__btn:hover {
+        border-radius: 18px;
+        background-color: var(--semi-bg);
+    }
 }

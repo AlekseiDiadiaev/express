@@ -2,15 +2,17 @@ import { createSlice } from '@reduxjs/toolkit'
 // import type { PayloadAction } from '@reduxjs/toolkit'
 import { Theme, Categories, SortFileds } from '../constatns';
 import { productsFetched } from '../slices/asyncThunk'
-import { IFilter, IProductsData } from '../interfaces';
+import { IProductData } from '../interfaces';
 
 interface IState {
     theme: Theme;
-    productsData: IProductsData[] | [] | null;
+    productsData: IProductData[] | [] | null;
     selectedCat: Categories;
-    filter: IFilter;
+    filter: SortFileds;
     loading: boolean;
     error: boolean;
+    cartIsOpen: boolean;
+    cartTrigger: boolean;
 }
 
 
@@ -18,12 +20,11 @@ const initialState: IState = {
     theme: Theme.Light,
     productsData: null,
     selectedCat: Categories.All,
-    filter: {
-        field: SortFileds.Rate,
-        direction: 1,
-    },
+    filter: SortFileds.RateLow,
     loading: false,
     error: false,
+    cartIsOpen: false,
+    cartTrigger: false,
 }
 
 export const commonSlice = createSlice({
@@ -33,19 +34,29 @@ export const commonSlice = createSlice({
         setTheme(state, { payload }: { payload: Theme }) {
             state.theme = payload;
         },
-        setProductsData(state, { payload }: { payload: IProductsData[] | null}) {
+        setProductsData(state, { payload }: { payload: IProductData[] | null}) {
             state.productsData = payload;
         },
         selectCat(state, { payload }: { payload: Categories }) {
             state.selectedCat = payload;
         },
-        selectFilter(state, { payload }: { payload: IFilter }) {
+        selectFilter(state, { payload }: { payload: SortFileds }) {
             state.filter = payload;
+        },
+        setCartIsOpen(state, { payload }: { payload?: boolean}) {
+            if(typeof payload === 'boolean') {
+                state.cartIsOpen = payload;
+            }  else {
+                state.cartIsOpen = !state.cartIsOpen;
+            }
+        },
+        changeCartTrigger(state) {
+            state.cartTrigger = !state.cartTrigger;
         }
     },
     extraReducers: (builder) => {
         builder
-        .addCase(productsFetched.fulfilled, (state, { payload }: { payload: IProductsData[] | null}) => {
+        .addCase(productsFetched.fulfilled, (state, { payload }: { payload: IProductData[] | null}) => {
             state.productsData = payload;
             state.error = false;
             state.loading = false;
@@ -68,5 +79,7 @@ export const {
     setTheme,
     setProductsData,
     selectCat,
-    selectFilter
+    selectFilter,
+    setCartIsOpen,
+    changeCartTrigger
 } = commonSlice.actions;

@@ -1,0 +1,21 @@
+.product {
+    display: flex;
+}
+.product__img {
+    width: 100%;
+}
+
+.product__descr {
+    width: 500px;
+    gap: 25px
+}
+
+.products__descr {
+    height: 150px;
+}
+
+.product__price-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

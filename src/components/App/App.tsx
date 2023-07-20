@@ -3,20 +3,23 @@ import Header from '../Header/Header';
 import MainPage from '../MainPage/MainPage';
 import { Categories } from '../../constatns';
 import './app.css';
-import ErrorBoundary from '../errorBoundary/ErrorBoundary';
+import SingleProduct from '../SingleProduct/SingleProduct';
+import Cart from '../Cart/Cart';
 
 
 function App() {
     return (
         <Router>
-            <ErrorBoundary><Header/></ErrorBoundary>
+            <Header/>
             <Routes>
                 <Route path='/' element={<MainPage category={Categories.All}/>} />
                 <Route path='/men' element={<MainPage category={Categories.Men}/>} />
                 <Route path='/woman' element={<MainPage category={Categories.Woman}/>} />
                 <Route path='/electronics' element={<MainPage category={Categories.Electronics}/>} />
                 <Route path='/jewelery' element={<MainPage category={Categories.Jewelery}/>} />
+                <Route path='/product/:id' element={<SingleProduct/>}/>
             </Routes>
+            <Cart/>
         </Router>
     );
 }
