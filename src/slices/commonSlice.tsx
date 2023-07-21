@@ -13,6 +13,7 @@ interface IState {
     error: boolean;
     cartIsOpen: boolean;
     cartTrigger: boolean;
+    modalIsOpen: boolean;
 }
 
 
@@ -25,6 +26,7 @@ const initialState: IState = {
     error: false,
     cartIsOpen: false,
     cartTrigger: false,
+    modalIsOpen: false,
 }
 
 export const commonSlice = createSlice({
@@ -52,6 +54,9 @@ export const commonSlice = createSlice({
         },
         changeCartTrigger(state) {
             state.cartTrigger = !state.cartTrigger;
+        },
+        setModalIsOpen(state, { payload }: { payload: boolean}) {
+            state.modalIsOpen = payload;
         }
     },
     extraReducers: (builder) => {
@@ -81,5 +86,6 @@ export const {
     selectCat,
     selectFilter,
     setCartIsOpen,
-    changeCartTrigger
+    changeCartTrigger,
+    setModalIsOpen
 } = commonSlice.actions;

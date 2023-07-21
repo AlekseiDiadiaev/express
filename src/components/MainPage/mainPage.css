@@ -1,5 +1,5 @@
 .main {
-    margin-top: 100px;
+    margin-top: 70px;
     padding: 20px 0;
 }
 
@@ -7,9 +7,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15;
 }
 
 .main__category {
+    text-align: center;
     font-size: 45px;
 }
 
@@ -24,3 +26,25 @@
     justify-content: space-evenly;
     gap: 10px;
 }
+
+@media (max-width: 991.98px) {
+    .main{
+        margin-top: 50px;
+    }
+    .main__category {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .main{
+        margin-top: 20px;
+    }
+    .main__category {
+        font-size: 25px;
+    }
+    .main__cards-wrapper {
+        grid-template-columns: repeat(auto-fit, 95%);
+    }
+}
+

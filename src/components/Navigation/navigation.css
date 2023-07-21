@@ -15,9 +15,27 @@
     background-color: var(--semi-bg);
 }
 
+.nav__btn:active {
+    scale: 0.9;
+}
+
 @media (hover: hover) {
     .nav__btn:hover {
         border-radius: 18px;
         background-color: var(--semi-bg);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .nav{
+        justify-content: center;
+        width: 100%;
+        order: 1;
+    }
+}
+@media (max-width: 575.98px) {
+    .nav{
+        row-gap: 0;
+        flex-wrap: wrap;
     }
 }

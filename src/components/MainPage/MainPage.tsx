@@ -1,15 +1,16 @@
 import './mainPage.css';
 import Filter from '../Filter/Filter';
 import Card from '../Card/Card';
+import Spinner from '../Spinner/Spinner';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxTypesHooks';
 import { selectCat, setProductsData } from '../../slices/commonSlice'
 import { Categories } from '../../constatns';
 import { productsFetched } from '../../slices/asyncThunk';
-import Spinner from '../Spinner/Spinner';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import { sortProducts } from '../../utils/sortProducts';
 import { isEqual } from 'lodash';
+import { cardIsLiked } from '../../utils/likeServices';
 
 const MainPage = ({ category }: { category: Categories }) => {
     const dispatch = useAppDispatch()
@@ -32,7 +33,7 @@ const MainPage = ({ category }: { category: Categories }) => {
             const sortedData = sortProducts(productsData, filter)
             if (!isEqual(productsData, sortedData)) {
                 dispatch(setProductsData(sortedData))
-            }  
+            }
         }
     }, [dispatch, filter, productsData])
 
@@ -47,8 +48,12 @@ const MainPage = ({ category }: { category: Categories }) => {
                 {loading && <Spinner />}
                 {error && <ErrorMessage>Fetching data error</ErrorMessage>}
                 <div className="main__cards-wrapper">
+
                     {!loading && !error && productsData
                         ?.filter(item => {
+                            if (category === Categories.Liked) {
+                                return cardIsLiked(item.id);
+                            }
                             if (selectedCat === Categories.All) return true;
                             return item.category === selectedCat
                         })

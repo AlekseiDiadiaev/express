@@ -12,7 +12,7 @@ const SingleProduct = () => {
     const [productData, setProductsData] = useState<IProductData | null>(null);
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-    
+
     const numberId = Number(id);
     useEffect(() => {
         setLoading(true)
@@ -36,7 +36,7 @@ const SingleProduct = () => {
             .finally(() => {
                 setLoading(false)
             })
-    }, [id])
+    }, [numberId])
 
     return (
         <div className="main">
@@ -54,7 +54,7 @@ const SingleProduct = () => {
                             <div className="card__descr products__descr">{productData.description}</div>
                             <div className="product__price-wrapper">
                                 <div className="card__price">${productData.price}</div>
-                                <BuyBtn id={numberId}/>
+                                <BuyBtn id={numberId} />
                             </div>
                         </div>
                     </div>

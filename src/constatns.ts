@@ -9,6 +9,7 @@ export enum Categories{
     Woman = "women's clothing",
     Electronics = 'electronics',
     Jewelery = 'jewelery',
+    Liked = 'favorite products'
 }
 
 export enum SortFileds{

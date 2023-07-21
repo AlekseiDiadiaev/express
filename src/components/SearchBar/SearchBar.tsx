@@ -20,7 +20,7 @@ const SearchBar = () => {
         const fuse = new Fuse(productsData, options)
         const searchResults = fuse.search(searchValue).map((result) => result.item);
         setFoundEvents(searchResults)
-    }, [searchValue])
+    }, [searchValue, productsData])
 
     const handleClickFoundEvent = () => {
         setSearchValue('');
@@ -48,7 +48,7 @@ const SearchBar = () => {
             <ul className="search__found-list">
                 {foundList}
             </ul>
-      </div>
+        </div>
     );
 }
 

@@ -1,5 +1,3 @@
-import { SortFileds } from "./constatns";
-
 export interface IProductData {
     id: number;
     title: string;

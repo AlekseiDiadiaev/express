@@ -1,17 +1,37 @@
-import './buttons.css';
+import './like.css';
 import { useAppSelector } from '../../hooks/reduxTypesHooks';
 import { Theme } from '../../constatns';
-import { NavLink } from 'react-router-dom';
+import { addLike, cardIsLiked, deleteLike } from '../../utils/likeServices';
+import { useEffect, useState } from 'react';
 
-const LikeBtn = () => {
+const Like = ({ id }: { id: number }) => {
+    const [isLiked, setIsLiked] = useState(false);
+    useEffect(() => {
+        setIsLiked(cardIsLiked(id));
+    },[id])   
+
     const theme = useAppSelector((state => state.theme))
-    const color = theme === Theme.Dark ? 'white' : 'black';
+    let color: string;
+    if (!isLiked) {
+        color = theme === Theme.Dark ? 'white' : 'black';
+    } else {
+        color =  theme === Theme.Dark ? '#d47b52b3' : '#d47b5259';
+    }
 
+    const handleClick = () => {
+        if(isLiked){
+            deleteLike(id)    
+        } else {
+            addLike(id)
+        }
+        setIsLiked(state => !state)
+    };
+
+    
     return (
-        <button className="liked-btn header__btn">
-            <NavLink to='/liked' className='liked-link'>
-                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M5.62436 4.4241C3.96537 5.18243 2.75 6.98614 2.75 9.13701C2.75 
+        <button className="liked-btn header__btn card__like" onClick={handleClick}>
+            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule={isLiked ? 'nonzero' : 'evenodd'} clipRule="evenodd" d="M5.62436 4.4241C3.96537 5.18243 2.75 6.98614 2.75 9.13701C2.75 
                 11.3344 3.64922 13.0281 4.93829 14.4797C6.00072 15.676 7.28684 16.6675 8.54113 17.6345C8.83904 17.8642 9.13515 
                 18.0925 9.42605 18.3218C9.95208 18.7365 10.4213 19.1004 10.8736 19.3647C11.3261 19.6292 11.6904 19.7499 12 
                 19.7499C12.3096 19.7499 12.6739 19.6292 13.1264 19.3647C13.5787 19.1004 14.0479 18.7365 14.574 18.3218C14.8649 
@@ -25,10 +45,9 @@ const LikeBtn = () => {
                   15.5026 19.4998C15.7662 19.292 16.0434 19.0785 16.3292 18.8585C17.5898 17.8879 19.0171 16.7888 20.1833 15.4757C21.6395 
                   13.836 22.75 11.8025 22.75 9.13701C22.75 6.42494 21.2153 4.07283 18.9992 3.05987C16.901 2.10078 14.3121 2.39015 
                   12 4.45873Z" fill={color} />
-                </svg>
-            </NavLink>
+            </svg>
         </button>
     );
 }
 
-export default LikeBtn;
+export default Like;

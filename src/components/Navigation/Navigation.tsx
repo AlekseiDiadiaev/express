@@ -5,9 +5,7 @@ const Navigation = () => {
    
     return (
         <nav className="nav">
-            <NavLink to="/" className={({ isActive}) =>
-                isActive ? "nav__btn active" : "nav__btn"
-            }>All</NavLink>
+            <NavLink to="/" className="nav__btn">All</NavLink>
             <NavLink to="/men" className="nav__btn">Men</NavLink>
             <NavLink to="/woman" className="nav__btn">Woman</NavLink>
             <NavLink to="/electronics" className="nav__btn">Electronics</NavLink>

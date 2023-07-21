@@ -1,6 +1,6 @@
 .card {
+    position: relative;
     height: 550px;
-    width: 380px;
     background-color: var(--semi-bg);
     border: 2px solid var(--semi-bg);
     border-radius: 2px;
@@ -22,7 +22,7 @@
 }
 
 .card__img img {
-    max-width: 90%;
+    max-width: 75%;
     max-height: 90%;
     border-radius: 5px;
 }
@@ -64,3 +64,4 @@
     height: 24px;
     font-weight: bold;
 }
+
