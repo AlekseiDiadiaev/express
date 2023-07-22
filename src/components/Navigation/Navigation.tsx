@@ -1,8 +1,7 @@
 import './navigation.css';
 import { NavLink } from 'react-router-dom';
 
-const Navigation = () => {
-   
+const Navigation = () => {  
     return (
         <nav className="nav">
             <NavLink to="/" className="nav__btn">All</NavLink>

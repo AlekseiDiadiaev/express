@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import reducer from './slices/commonSlice'
 
-
 const store = configureStore({
     reducer,
     middleware: defaultMiddleware => defaultMiddleware(),

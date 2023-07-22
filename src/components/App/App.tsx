@@ -1,16 +1,22 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './app.css';
 import Header from '../Header/Header';
 import MainPage from '../MainPage/MainPage';
-import { Categories } from '../../constatns';
-import './app.css';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import Cart from '../Cart/Cart';
 import Modal from '../Modal/Modal';
-import { useAppSelector } from '../../hooks/reduxTypesHooks';
-
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxTypesHooks';
+import { productsFetched } from '../../slices/asyncThunk';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Categories } from '../../constatns';
 
 function App() {
     const modalIsOpen = useAppSelector((state => state.modalIsOpen))
+    const dispatch = useAppDispatch()
+    
+    useEffect(() => {
+        dispatch(productsFetched())
+    }, [dispatch])
 
     return (
         <Router>

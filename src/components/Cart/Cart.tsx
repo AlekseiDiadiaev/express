@@ -4,7 +4,6 @@ import { changeCartTrigger, setCartIsOpen, setModalIsOpen } from '../../slices/c
 import MiniCard from '../MiniCard/MiniCard';
 import { clearBag, getCart, getTotalBagPrice } from '../../utils/cartServieces';
 import { useEffect, useState } from 'react';
-import { productsFetched } from '../../slices/asyncThunk';
 
 const Cart = () => {
     const productsData = useAppSelector((state => state.productsData))

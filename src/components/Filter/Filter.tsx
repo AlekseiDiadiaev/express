@@ -3,7 +3,6 @@ import { useAppDispatch } from '../../hooks/reduxTypesHooks';
 import { selectFilter } from '../../slices/commonSlice'
 import './filter.css';
 
-
 const Filter = () => {
     const dispatch = useAppDispatch()
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

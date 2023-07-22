@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
-// import type { PayloadAction } from '@reduxjs/toolkit'
 import { Theme, Categories, SortFileds } from '../constatns';
 import { productsFetched } from '../slices/asyncThunk'
 import { IProductData } from '../interfaces';
 
 interface IState {
     theme: Theme;
-    productsData: IProductData[] | [] | null;
+    productsData: IProductData[] | null;
     selectedCat: Categories;
     filter: SortFileds;
     loading: boolean;

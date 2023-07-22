@@ -1,5 +1,5 @@
-import Logo from '../Logo/Logo'
 import './header.css';
+import Logo from '../Logo/Logo'
 import Navigation from '../Navigation/Navigation';
 import SearchBar from '../SearchBar/SearchBar';
 import LikeBtn from '../Buttons/LikeBtn';

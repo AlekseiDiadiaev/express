@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxTypesHooks';
 import { selectCat, setProductsData } from '../../slices/commonSlice'
 import { Categories } from '../../constatns';
-import { productsFetched } from '../../slices/asyncThunk';
 import { sortProducts } from '../../utils/sortProducts';
 import { isEqual } from 'lodash';
 import { cardIsLiked } from '../../utils/likeServices';
@@ -23,10 +22,6 @@ const MainPage = ({ category }: { category: Categories }) => {
     useEffect(() => {
         dispatch(selectCat(category));
     }, [category, dispatch])
-
-    useEffect(() => {
-        dispatch(productsFetched())
-    }, [dispatch])
 
     useEffect(() => {
         if (productsData) {
