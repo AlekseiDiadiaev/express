@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ##  Technologies used
 
 React
-Redax Toolkit
+RedaxToolkit
 TypeScript
 Html
 Css
