@@ -9,6 +9,7 @@ import { productsFetched } from '../../slices/asyncThunk';
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Categories } from '../../constatns';
+import Page404 from '../404/Page404';
 
 function App() {
     const modalIsOpen = useAppSelector((state => state.modalIsOpen))
@@ -22,6 +23,7 @@ function App() {
         <Router>
             <Header />
             <Routes>
+                <Route path='*' element={<Page404/>}/>
                 <Route path='/' element={<MainPage category={Categories.All} />} />
                 <Route path='/men' element={<MainPage category={Categories.Men} />} />
                 <Route path='/woman' element={<MainPage category={Categories.Woman} />} />
